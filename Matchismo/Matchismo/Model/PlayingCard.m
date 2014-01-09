@@ -10,6 +10,13 @@
 
 @implementation PlayingCard
 
+// From Card, and we won't put this in our .h file
+- (int)match:(NSArray *)otherCards
+{
+
+
+}
+
 + (NSArray *)validSuits
 {
     return @[@"♥",@"♦",@"♠",@"♣"];
