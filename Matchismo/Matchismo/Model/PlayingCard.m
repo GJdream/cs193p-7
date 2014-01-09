@@ -10,11 +10,28 @@
 
 @implementation PlayingCard
 
-// From Card, and we won't put this in our .h file
+// From Card, and we won't put this in our .h file.
 - (int)match:(NSArray *)otherCards
 {
+    // In lecture, one card is matched. Assignment 1 will
+    // require matching more than one.
+    
+    int score = 0;
+    
+    if ([otherCards count] == 1) {
+        PlayingCard *otherCard = [otherCards firstObject];
 
+        // Rank matches are worth more than suit matches:
+        // We choose 1 and 4 because if you some suit, there are
+        // 12 possible matches while a rank only has 3 possible matches.
+        if ([self.suit isEqualToString:otherCard.suit]) {
+            score = 1;
+        } else if (self.rank == otherCard.rank) {
+            score = 4;
+        }
+    }
 
+    return score;
 }
 
 + (NSArray *)validSuits
